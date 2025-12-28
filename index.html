@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>QUOTE OF THE DAY</title>
+   <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+   <div class="quote-box">
+    <h2>Quote of the day</h2>
+    <blockquote id="quote">You are never too old to set another goal or dream a new dream</blockquote>
+    <span id="author"> - C.S.LEWIS</span>
+    <div>
+      <button onclick="getquote(api_url)">New Quote</button>
+      <button onclick="tweet()"><img src="uu.jpeg">Tweet</button>
+</div>
+ <a href="https://www.bing.com/search?q=quote+of+the+day+motivational&form=ANNTH1&refig=693fc2e024af46baa699da8a4ca61f97&pc=U531&pq=quote+of+the+&pqlth=13&assgl=29&sgcn=quote+of+the+day+motivational&qs=MT&sgtpv=MT&smvpcn=0&swbcn=10&sctcn=0&sc=10-13&sp=2&ghc=0&cvid=693fc2e024af46baa699da8a4ca61f97&clckatsg=1&hsmssg=0" target="_blank">Click here for more quotes👈🏻</a>
+  </div>
+<script>
+const quote = document.getElementById("quote");
+const author = document.getElementById("author");
+const api_url = "https://share.google/BfsVFFNsmPJAmB0tD";
+async function getquote(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    quote.innerHTML = data.content;
+    author.innerHTML = data.author;
+}
+getquote(api_url);
+function tweet(){
+   window.open("https://twitter.com/intent/tweet?text=Hello%20world","Tweet Window","width=600,height=300")
+}
+</script>
+</body>
+</html>
